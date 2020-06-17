@@ -27,4 +27,11 @@ public class VoteService {
     public List<CountyVote> getAll() {
         return repository.findAll();
     }
+
+    public List<CountyVote> getLatest() {
+        List<CountyVote> latestVotes = repository.findLatestVotes();
+        System.out.println(latestVotes.size());
+        latestVotes.forEach(System.out::println);
+        return latestVotes;
+    }
 }

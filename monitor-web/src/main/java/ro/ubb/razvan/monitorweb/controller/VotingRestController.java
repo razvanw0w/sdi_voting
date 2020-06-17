@@ -43,4 +43,10 @@ public class VotingRestController {
         List<CountyVote> all = voteService.getAll();
         return new VotesDTO(voteConverter.toDTOList(all));
     }
+
+    @GetMapping(value = "/voting/latest")
+    VotesDTO getLatest() {
+        List<CountyVote> latest = voteService.getLatest();
+        return new VotesDTO(voteConverter.toDTOList(latest));
+    }
 }

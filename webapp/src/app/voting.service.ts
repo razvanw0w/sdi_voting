@@ -13,4 +13,8 @@ export class VotingService {
   getAll(): Observable<Votes> {
     return this.httpClient.get<Votes>(`${this.url}/voting/all`);
   }
+
+  getLatest(): Observable<Votes> {
+    return this.httpClient.get<Votes>(`${this.url}/voting/latest`);
+  }
 }
