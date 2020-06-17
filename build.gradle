@@ -20,7 +20,7 @@ subprojects {
         jaxbapiVersion = '2.3.0'
         caffeineVersion = '2.6.1'
         lombokVersion = '1.18.12'
-        jacksonDatabindVersion = '2.9.4'
+        jacksonDatabindVersion = '2.11.0'
 //        javaxServeletApiVersion = '3.1.0'
         javaxServeletApiVersion = '4.0.1'
     }

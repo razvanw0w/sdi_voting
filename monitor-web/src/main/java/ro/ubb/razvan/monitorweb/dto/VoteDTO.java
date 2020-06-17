@@ -1,4 +1,4 @@
-package ro.ubb.razvan.county.dto;
+package ro.ubb.razvan.monitorweb.dto;
 
 import lombok.*;
 

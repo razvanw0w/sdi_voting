@@ -1,5 +1,6 @@
 package ro.ubb.razvan.county.server;
 
+import org.springframework.http.HttpEntity;
 import org.springframework.web.client.RestTemplate;
 import ro.ubb.razvan.county.dto.VoteDTO;
 
@@ -31,12 +32,11 @@ public class HandleVotingUpdate implements Runnable {
                     lastC = c;
 
                     VoteDTO dto = VoteDTO.builder().name(name).a(a).b(b).c(c).nr(a + b + c).build();
+                    HttpEntity<VoteDTO> entity = new HttpEntity<>(dto);
                     System.out.println(String.format("Want to send %s %d %d %d %d", name, a, b, c, a + b + c));
-                    CompletableFuture.runAsync(() -> restTemplate.postForObject(
-                            "http://localhost:8080/api/voting",
-                            dto,
-                            VoteDTO.class
-                    ));
+                    CompletableFuture.runAsync(
+                            () -> restTemplate.postForEntity("http://localhost:8080/api/voting", dto, VoteDTO.class)
+                    );
                 } else {
                     System.out.println("data not changed");
                 }
