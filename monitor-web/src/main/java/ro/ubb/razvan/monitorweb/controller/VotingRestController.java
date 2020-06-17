@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ro.ubb.razvan.monitorcore.controller.VoteService;
 import ro.ubb.razvan.monitorcore.model.CountyVote;
+import ro.ubb.razvan.monitorcore.model.VoteResultDTO;
 import ro.ubb.razvan.monitorweb.converter.VoteConverter;
 import ro.ubb.razvan.monitorweb.dto.VoteDTO;
+import ro.ubb.razvan.monitorweb.dto.VoteResultsDTO;
 import ro.ubb.razvan.monitorweb.dto.VotesDTO;
 
 import java.util.List;
@@ -48,5 +50,11 @@ public class VotingRestController {
     VotesDTO getLatest() {
         List<CountyVote> latest = voteService.getLatest();
         return new VotesDTO(voteConverter.toDTOList(latest));
+    }
+
+    @GetMapping(value = "/voting/results")
+    VoteResultsDTO getResults() {
+        List<VoteResultDTO> results = voteService.getResults();
+        return new VoteResultsDTO(results);
     }
 }

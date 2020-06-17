@@ -1,5 +1,5 @@
 import {HttpClient} from "@angular/common/http";
-import {Votes} from "./voting.model";
+import {VoteResults, Votes} from "./voting.model";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 
@@ -16,5 +16,9 @@ export class VotingService {
 
   getLatest(): Observable<Votes> {
     return this.httpClient.get<Votes>(`${this.url}/voting/latest`);
+  }
+
+  getResults(): Observable<VoteResults> {
+    return this.httpClient.get<VoteResults>(`${this.url}/voting/results`);
   }
 }

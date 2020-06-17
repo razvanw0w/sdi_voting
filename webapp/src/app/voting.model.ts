@@ -10,3 +10,12 @@ export class Vote {
 export class Votes {
   votes: Array<Vote>
 }
+
+export class VoteResult {
+  candidate: string
+  votes: number
+}
+
+export class VoteResults {
+  results: Array<VoteResult>
+}
