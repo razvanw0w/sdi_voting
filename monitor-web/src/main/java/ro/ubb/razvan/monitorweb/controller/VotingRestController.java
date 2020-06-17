@@ -15,6 +15,12 @@ public class VotingRestController {
 
     @PostMapping(value = "/voting")
     void receiveVotingInfo(@RequestBody VoteDTO dto) {
-        System.out.println(dto.toString());
+        System.out.println(
+                String.format("%s,%d,%d,%d,%d", dto.getName(),
+                        dto.getA(),
+                        dto.getB(),
+                        dto.getC(),
+                        dto.getNr())
+        );
     }
 }
