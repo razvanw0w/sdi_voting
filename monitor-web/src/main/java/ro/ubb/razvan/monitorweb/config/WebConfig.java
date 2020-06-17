@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"ro.ubb.razvan.monitorweb.controller"})
+@ComponentScan({"ro.ubb.razvan.monitorweb.controller", "ro.ubb.razvan.monitorweb.converter"})
 public class WebConfig {
     @Bean
     public WebMvcConfigurer corsConfigurer() {

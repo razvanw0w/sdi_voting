@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import ro.ubb.razvan.monitorcore.model.CountyVote;
 import ro.ubb.razvan.monitorcore.repository.CountyVoteRepository;
 
+import java.util.List;
+
 @Service
 public class VoteService {
     @Autowired
@@ -20,5 +22,9 @@ public class VoteService {
                 .nr(nr)
                 .build();
         repository.save(countyVote);
+    }
+
+    public List<CountyVote> getAll() {
+        return repository.findAll();
     }
 }
