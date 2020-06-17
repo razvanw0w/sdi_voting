@@ -1,4 +1,4 @@
-package ro.ubb.razvan.server;
+package ro.ubb.razvan.county.server;
 
 import java.io.*;
 import java.net.Socket;
@@ -22,8 +22,12 @@ public class HandleVotingScan implements Runnable {
             int a = Integer.parseInt(split[1]);
             int b = Integer.parseInt(split[2]);
             int c = Integer.parseInt(split[3]);
+            Server.aCount += a;
+            Server.bCount += b;
+            Server.cCount += c;
             System.out.println(String.format("%s %d %d %d", name, a, b, c));
-        } catch (IOException e) {
+            Thread.sleep(4000);
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
